@@ -1,20 +1,24 @@
 import './App.css'
-import React, {lazy, Suspense} from 'react';
+import React, {Suspense} from 'react';
+import {Home, About} from 'page_app/pages';
+import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
 
-
-const Pages=lazy(()=>import('pagestApp/App'));
+import 'http://localhost:5174/src/index.css'
+import 'http://localhost:5173/src/index.css'
+//const Pages=lazy(()=>import('pagestApp/App'));
 
 function App() {
   
   return (
-    <>
-      <div className='h-[500px] w-[1496px] p-0 m-0 bg-teal-400'>
-        <h1>This is the Base App</h1>
-        <Suspense>
-          <Pages/>
-        </Suspense>
-      </div>
-    </>
+          <Router>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/about" element={<About/>}/>
+              </Routes>
+            </Suspense>
+          </Router>
+
   )
 }
 

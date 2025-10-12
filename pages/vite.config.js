@@ -11,14 +11,24 @@ export default defineConfig({
     federation({
       name: 'page_app',
       filename: 'remoteEntry.js',
+      exposes:{
+        //'./components':'./src/page_components/index.js',
+        './pages':'./src/Imp_Pages/index.js'
+      },
       remotes:{
         comp_app:{
           entry:'http://localhost:5173/remoteEntry.js'
           ,type:'module'
         }},
       shared:{
-        react:{singleton:true},
-        'react-dom':{singleton:true}}
+        react:{
+          singleton:true,
+          requiredVersion:'^18.0.0'
+        },
+        'react-dom':{
+          singleton:true,
+          requiredVersion:'^18.0.0'
+        }}
     })
   ],
   server:{

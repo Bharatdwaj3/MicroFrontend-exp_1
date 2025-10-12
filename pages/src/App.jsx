@@ -3,7 +3,7 @@ import './App.css'
 
 import 'http://localhost:5173/src/index.css'  
 
-import Home from './Imp_Pages/Home'
+import {Home,About } from './Imp_Pages/index'
 
 //const CompApp=lazy(()=>import('comp_app/App'))
 function App() {
@@ -12,6 +12,7 @@ function App() {
     <>
        <div  className='h-[500px] w-[1469px] bg-green-500'>
           <Home/>
+          <About/>
         </div>  
     </>
   )
