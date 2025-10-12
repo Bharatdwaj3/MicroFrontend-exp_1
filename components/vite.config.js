@@ -10,7 +10,7 @@ export default defineConfig({
       name: 'comp_app',
       filename:'remoteEntry.js',
       exposes:{
-        './App':'./src/App.jsx'
+        './components':'./src/page_components/index.js'
       },
       shared:{
         react:{singleton:true},
@@ -28,5 +28,4 @@ export default defineConfig({
     minify:false,
     cssCodeSplit:false
   }
-
 })
